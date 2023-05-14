@@ -1,2 +1,2 @@
-package hiber.dao;public class CarDaoImp {
-}
+//package hiber.dao;public class CarDaoImp {
+//}

@@ -36,28 +36,28 @@ public class Car {
         this.id = id;
     }
 
-    public String getModel(String model) {
+    public String getModel() {
         return model;
     }
 
-    public void setModel() {
+    public void setModel(String model) {
         this.model = model;
     }
 
-    public int getSeries(int series) {
+    public int getSeries() {
         return series;
     }
 
-    public void setSeries() {
+    public void setSeries(int series) {
         this.series = series;
     }
 
-    public User getUser(User user){
+    public User getUser(){
         return user;
     }
 
 
-    public void setUser(){
+    public void setUser(User user){
         this.user = user;
     }
 

@@ -10,4 +10,6 @@ public interface UserService {
 
     void addCar(Car car);
     List<User> listUsers();
+
+    List<User> listUserByCar(Car car);
 }

@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
@@ -21,15 +22,27 @@ public class UserDaoImp implements UserDao {
    }
 
    @Override
-   public void addCar(Car car){
+   public void addCar(Car car) {
       sessionFactory.getCurrentSession().save(car);
    }
 
    @Override
    @SuppressWarnings("unchecked")
    public List<User> listUsers() {
-      TypedQuery<User> query=sessionFactory.getCurrentSession().createQuery("from User");
+      TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("from User");
       return query.getResultList();
    }
 
+   /**
+   Метод позволяет по машине получить собсвенника авто
+    */
+   @Override
+   @SuppressWarnings("unchecked")
+   public List<User> listUserByCar(Car car) {
+      String hql = "from User u where u.car.model =:carModel";
+      Query quary = sessionFactory.getCurrentSession().createQuery(hql);
+//      quary.setParameter("s",car.getSeries());
+      quary.setParameter("carModel",car.getModel());
+      return quary.getResultList();
+   }
 }

@@ -11,15 +11,16 @@ import java.util.List;
 
 public class MainApp {
    public static void main(String[] args) throws SQLException {
+
       AnnotationConfigApplicationContext context = 
             new AnnotationConfigApplicationContext(AppConfig.class);
 
       UserService userService = context.getBean(UserService.class);
 
-//      Car alexeyCar = new Car("Mersedes",220);
-//      Car dimonCar = new Car("Audi",100);
-//      Car shurikCar = new Car("BMW",525);
-//      Car igorCar = new Car("Жигули",5);
+      Car alexeyCar = new Car("Mersedes",220);
+      Car dimonCar = new Car("Audi",100);
+      Car shurikCar = new Car("BMW",525);
+      Car igorCar = new Car("Жигули",5);
 
 //      userService.addCar(alexeyCar);
 //      userService.addCar(dimonCar);
@@ -69,8 +70,22 @@ public class MainApp {
 //         System.out.println("First Name = "+user.getFirstName());
 //         System.out.println("Last Name = "+user.getLastName());
 //         System.out.println("Email = "+user.getEmail());
+//         System.out.println("Model = " + user.getCar().getModel());
 //         System.out.println();
 //      }
+
+      List<User> users = userService.listUserByCar(alexeyCar);
+      for (User user : users) {
+         System.out.println("\n" + "Достаём собственника по модели машины и по серии \n" +
+                 "___________________________");
+         System.out.println("Модель собственника: " + user.getCar().getModel() + " , серия: " +
+                 user.getCar().getSeries());
+         System.out.println("Данные владельца: \n"+"Id = "+ user.getId());
+         System.out.println("First Name = "+user.getFirstName());
+         System.out.println("Last Name = "+user.getLastName());
+         System.out.println("Email = "+ user.getEmail());
+         System.out.println("__________________________");
+      }
 
       context.close();
    }

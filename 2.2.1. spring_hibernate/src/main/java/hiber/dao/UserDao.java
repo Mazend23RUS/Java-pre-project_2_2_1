@@ -3,7 +3,6 @@ package hiber.dao;
 import hiber.model.Car;
 import hiber.model.User;
 
-import java.util.Calendar;
 import java.util.List;
 
 public interface UserDao {
@@ -13,4 +12,5 @@ public interface UserDao {
    List<User> listUsers();
 
 
+    List<User> listUserByCar(Car car);
 }
