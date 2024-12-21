@@ -29,12 +29,12 @@ public class UserDaoImp implements UserDao {
    @Override
    @SuppressWarnings("unchecked")
    public List<User> listUsers() {
-      TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("from User");
+      TypedQuery <User> query = sessionFactory.getCurrentSession().createQuery("from User");
       return query.getResultList();
    }
 
    /**
-   Метод позволяет по машине получить собсвенника авто
+   Метод позволяет по машине получить собственника авто
     */
    @Override
    @SuppressWarnings("unchecked")
@@ -51,4 +51,6 @@ public class UserDaoImp implements UserDao {
 
       return quary.getResultList();
    }
+
+
 }
